@@ -88,23 +88,22 @@
       cursor: pointer;
       border: none;
       transition: transform 0.3s ease;
+      flex-direction: column;
+      gap: 5px;
     }
 
     .nav-toggle span {
-      position: absolute;
-      width: 20px;
-      height: 2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: rgba(255, 255, 255, 0.8);
-      border-radius: 1px;
       transition: 0.3s;
     }
 
-    .nav-toggle span:nth-child(1) {
-      transform: translateY(-6px);
-    }
-    .nav-toggle span:nth-child(2) {}
-    .nav-toggle span:nth-child(3) {
-      transform: translateY(6px);
+    .nav-toggle.open span {
+      width: 20px;
+      height: 2px;
+      border-radius: 1px;
     }
 
     .nav-toggle.open span:nth-child(1) {
