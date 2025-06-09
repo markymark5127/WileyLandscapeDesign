@@ -115,4 +115,14 @@ prevBtn.addEventListener('click', () => updateCarousel(currentService - 1));
 nextBtn.addEventListener('click', () => updateCarousel(currentService + 1));
 
 renderThumbnails();
+
+// Position thumbnails immediately without animation
+const initialThumbs = thumbContainer.querySelectorAll('img');
+initialThumbs.forEach(img => img.classList.add('initial')); // disable transitions
+styleThumbnails();
+centerThumbnail();
+requestAnimationFrame(() => {
+  initialThumbs.forEach(img => img.classList.remove('initial'));
+});
+
 updateCarousel(0);
