@@ -197,6 +197,8 @@ body, html {
 .hero {
   padding-top: 12em;
   padding-bottom: 6em;
+  min-height: 100vh;
+  justify-content: center;
 }
 
 /* Spacer element used only on mobile */
