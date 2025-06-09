@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000;
+  background: url('../assets/background.png') no-repeat center center/cover;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+.frosted-header {
+  position: relative;
+  z-index: 2;
+  padding: 1.5em 2em;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 0.75em 2em;
+  border-radius: 15px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5em;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem; /* ⬅️ Increased font size */
+  font-weight: 600;
+}
+
+.phone-number {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem; /* ⬅️ Increased font size */
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5em 2em 2em;
+  text-align: center;
+}
+
+.full-logo {
+  width: 700px;       /* ⬅️ Increased size significantly */
+  max-width: 95vw;
+  height: auto;
+  margin-bottom: 2.5em;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 2em;
+  width: 80%;
+  max-width: 800px;
+}
+
+.glass-box p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.5;
+}
