@@ -171,7 +171,7 @@ body, html {
 
 .hero {
   padding-top: 12em;
-  padding-bottom: 4em;
+  padding-bottom: 6em;
 }
 
 .full-logo {
@@ -239,7 +239,7 @@ iframe {
   }
 
   #home {
-    margin-bottom: 4em;
+    margin-bottom: 6em;
   }
 
   .glass-box,
