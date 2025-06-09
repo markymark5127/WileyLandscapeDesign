@@ -109,6 +109,10 @@ body, html {
   transition: all 0.3s ease;
 }
 
+.nav-toggle.open {
+  gap: 0;
+}
+
 .nav-toggle.open span {
   width: 20px;
   height: 2px;
@@ -116,13 +120,13 @@ body, html {
 }
 
 .nav-toggle.open span:nth-child(1) {
-  transform: rotate(45deg);
+  transform: translateY(4px) rotate(45deg);
 }
 .nav-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 .nav-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg);
+  transform: translateY(4px) rotate(-45deg);
 }
 
 .nav-menu-mobile {
