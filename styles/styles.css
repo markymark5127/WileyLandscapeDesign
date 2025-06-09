@@ -65,22 +65,60 @@ body, html {
   font-size: 1.5rem;
 }
 
-/* Mobile Nav Toggle */
+/* Glass Circle Mobile Menu */
 .nav-toggle {
   display: none;
-  flex-direction: column;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  z-index: 1100;
+  align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 30px;
-  height: 24px;
-  gap: 5px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .nav-toggle span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  margin: 3px 0;
   display: block;
-  height: 3px;
-  background: #333;
-  border-radius: 2px;
+}
+
+.nav-menu-mobile {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 1rem;
+  border-radius: 15px;
+  z-index: 1099;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.nav-menu-mobile.show {
+  display: flex;
+}
+
+.nav-menu-mobile a {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  text-align: left;
 }
 
 /* Sections */
@@ -155,38 +193,13 @@ iframe {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
+  .frosted-header .nav {
+    display: none;
   }
 
   .nav-toggle {
     display: flex;
-  }
-
-  .nav-links {
-    display: none;
     flex-direction: column;
-    width: 100%;
-    margin-top: 1em;
-  }
-
-  .nav-links.show {
-    display: flex;
-    gap: 1.5em;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(8px);
-    border-radius: 10px;
-    padding: 1em;
-  }
-
-  .nav-links a {
-    font-size: 1.2rem;
-  }
-
-  .phone-number {
-    font-size: 1.2rem;
-    margin-top: 1em;
   }
 
   .full-logo {
@@ -213,16 +226,15 @@ iframe {
 }
 
 @media (max-width: 480px) {
-  .nav-links a,
-  .phone-number {
-    font-size: 1rem;
-  }
-
   .glass-box p {
     font-size: 1rem;
   }
 
   .glass-box h2 {
     font-size: 1.5rem;
+  }
+
+  .nav-menu-mobile a {
+    font-size: 1rem;
   }
 }
