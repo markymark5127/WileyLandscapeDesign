@@ -5,29 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wiley Landscaping Design</title>
   <link rel="stylesheet" href="styles/styles.css" />
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
 </head>
 <body>
   <div class="background-overlay"></div>
 
-  <header class="frosted-header">
+  <header class="frosted-header fixed-header">
     <nav class="nav">
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#resources">Resources</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a class="phone-number" href="tel:+17175808642">(717) 580-8642</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <section id="home" class="hero section">
     <img src="assets/logo_full.png" alt="Wiley Landscaping Design Full Logo" class="full-logo" />
     <div class="glass-box">
       <p>Transforming outdoor spaces into living works of art — discover the beauty of thoughtful landscaping with Wiley Landscaping Design.</p>
-    </div
+    </div>
   </section>
+
+  <section id="about" class="section">
+    <div class="glass-box wide">
+      <h2>Our Mission</h2>
+      <p>Our mission is to help you make the earth your canvas. With Wiley our clients receive a unique and tailored service to bring to life their desired vision. Whether it be our Landscaping or Tree Services, we listen to your every need and guarantee your satisfaction.</p>
+      <p>We have a wealth of knowledge ranging from Domestic and International Landscape Design, Botany, Horticulture, Arboriculture, Gardening and more. Trust and Integrity are our core values. With Wiley, your home is in good hands.</p>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <div class="glass-box wide">
+      <h2>Our Services</h2>
+      <ul class="service-list">
+        <li>Softscaping</li>
+        <li>Mulch Installation</li>
+        <li>Landscape Design</li>
+        <li>Fall Clean Up</li>
+        <li>Sod Installation</li>
+        <li>Tree Trimming</li>
+        <li>Tree Removal</li>
+      </ul>
+      <img src="https://source.unsplash.com/800x400/?landscape,trees" alt="Service Image" class="section-image" />
+    </div>
+  </section>
+
+  <section id="reviews" class="section">
+    <div class="glass-box wide">
+      <h2>What Our Customers Say</h2>
+      <iframe src="https://search.google.com/local/reviews?placeid=ChIJm5rs6PjWxokRoQXkT0dU8yw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="glass-box wide">
+      <h2>Contact Us</h2>
+      <p>York, PA and Surrounding Areas</p>
+      <p>Phone: <a href="tel:+17175808642">(717) 580-8642</a></p>
+      <p><a href="https://www.facebook.com/people/Wiley-Landscape-Design-Tree-Service/100092206913959/" target="_blank">Visit us on Facebook</a></p>
+      <div id="map" style="height: 300px; width: 100%; margin-top: 1em;"></div>
+    </div>
+  </section>
+
+  <script>
+    // Scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Google Map
+    function initMap() {
+      const location = { lat: 40.058698, lng: -76.750339 };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: location
+      });
+      new google.maps.Marker({ position: location, map });
+    }
+    window.initMap = initMap;
+  </script>
 </body>
 </html>
