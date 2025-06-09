@@ -63,12 +63,7 @@ function renderThumbnails() {
     img.src = service.src;
     img.alt = service.title;
 
-    const label = document.createElement('div');
-    label.className = 'thumbnail-title';
-    label.textContent = service.title;
-
     wrapper.appendChild(img);
-    wrapper.appendChild(label);
     thumbContainer.appendChild(wrapper);
   });
 
