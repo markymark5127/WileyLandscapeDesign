@@ -572,6 +572,7 @@ iframe {
 }
 
 .contact-phone,
+.text-message-link,
 .facebook-link {
   display: inline-flex;
   justify-content: center;
@@ -596,6 +597,7 @@ iframe {
 }
 
 .contact-phone:hover,
+.text-message-link:hover,
 .facebook-link:hover {
   background: rgba(255,255,255,0.75);
 }
