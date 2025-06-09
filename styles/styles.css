@@ -42,12 +42,14 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
   gap: 2.5em;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -132,4 +134,64 @@ body, html {
 
 iframe {
   border-radius: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .phone-number {
+    font-size: 1.2rem;
+    margin-top: 1em;
+  }
+
+  .full-logo {
+    width: 90vw;
+  }
+
+  .glass-box,
+  .glass-box.wide {
+    width: 95%;
+    padding: 1.5em;
+  }
+
+  .glass-box p {
+    font-size: 1.1rem;
+  }
+
+  .glass-box h2 {
+    font-size: 1.7rem;
+  }
+
+  .service-list {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links a,
+  .phone-number {
+    font-size: 1rem;
+  }
+
+  .glass-box p {
+    font-size: 1rem;
+  }
+
+  .glass-box h2 {
+    font-size: 1.5rem;
+  }
 }
