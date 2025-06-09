@@ -94,6 +94,10 @@ function updateCarousel(index) {
   mainImg.src = services[currentService].src;
   mainImg.alt = services[currentService].title;
   serviceTitle.textContent = services[currentService].title;
+  mainImg.classList.add('spin');
+  mainImg.addEventListener('animationend', () => {
+    mainImg.classList.remove('spin');
+  }, { once: true });
   styleThumbnails();
   centerThumbnail();
 }
