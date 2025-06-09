@@ -36,9 +36,9 @@ body, html {
   width: 95%;
   max-width: 1100px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   border-radius: 20px;
 }
 
@@ -46,7 +46,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5em 2em;
+  padding: 1em 2em;
 }
 
 .nav {
@@ -65,8 +65,8 @@ body, html {
 .nav-links a {
   text-decoration: none;
   color: #333;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 300;
   letter-spacing: 0.25px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -75,8 +75,8 @@ body, html {
 .phone-number {
   color: #333;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-weight: 300;
+  font-size: 1.25rem;
 }
 
 /* Glass Circle Mobile Menu */
@@ -97,7 +97,7 @@ body, html {
   border: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
-  flex-direction: row;
+  flex-direction: column;
   gap: 5px;
 }
 
@@ -111,44 +111,49 @@ body, html {
 
 .nav-toggle.open {
   gap: 0;
+  position: relative;
 }
 
 .nav-toggle.open span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 20px;
   height: 2px;
   border-radius: 1px;
+  transform: translate(-50%, -50%);
 }
 
 .nav-toggle.open span:nth-child(1) {
-  transform: translateY(4px) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 .nav-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 .nav-toggle.open span:nth-child(3) {
-  transform: translateY(4px) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .nav-menu-mobile {
   position: fixed;
   top: calc(60px + 1.5rem);
   left: 1rem;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
   padding: 1rem;
   border-radius: 15px;
   z-index: 1099;
   width: 200px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-20px);
   pointer-events: none;
   visibility: hidden;
 
   display: flex;
   flex-direction: column;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
 .nav-menu-mobile.show {
@@ -163,7 +168,7 @@ body, html {
   margin: 0.5rem 0;
   text-decoration: none;
   color: #333;
-  font-weight: 500;
+  font-weight: 300;
   text-align: left;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -326,16 +331,16 @@ iframe {
   }
 
   .nav-links a {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 300;
     color: #222;
     text-decoration: none;
   }
 
   .phone-number {
     margin-left: auto;
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-weight: 300;
+    font-size: 1.1rem;
     color: #222;
     white-space: nowrap;
   }
