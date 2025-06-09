@@ -368,6 +368,7 @@ iframe {
   height: 100%;
   object-fit: cover;
   border-radius: 25px;
+  transition: opacity 0.5s ease;
 }
 
 .service-title {
@@ -382,6 +383,12 @@ iframe {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 600; /* or 500 */
   letter-spacing: 0.2px;
+  transition: opacity 0.5s ease;
+}
+
+.main-service-img.fade-out,
+.service-title.fade-out {
+  opacity: 0;
 
 }
 
