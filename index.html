@@ -7,7 +7,7 @@
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="styles/styles.css" />
   <script defer src="scripts/main.js"></script>
-  <script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
 </head>
 <body>
   <div class="background-overlay"></div>
@@ -81,7 +81,9 @@
   <section id="reviews" class="section">
     <div class="glass-box wide">
       <h2>What Our Customers Say</h2>
-      <iframe src="https://search.google.com/local/reviews?placeid=ChIJm5rs6PjWxokRoQXkT0dU8yw" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <div id="reviews-container" class="reviews-container">
+        <p>Loading reviews...</p>
+      </div>
     </div>
   </section>
 
@@ -89,9 +91,17 @@
     <div class="glass-box wide">
       <h2>Contact Us</h2>
       <p>York, PA and Surrounding Areas</p>
-      <p>Phone: <a href="tel:+17175808642">(717) 580-8642</a></p>
-      <p><a href="https://www.facebook.com/people/Wiley-Landscape-Design-Tree-Service/100092206913959/" target="_blank">Visit us on Facebook</a></p>
-      <div id="map" style="height: 300px; width: 100%; margin-top: 1em;"></div>
+
+      <form id="contactForm" class="contact-form">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" rows="4" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p class="contact-phone"><a href="tel:+17175808642">(717) 580-8642</a></p>
+      <p><a class="facebook-link" href="https://www.facebook.com/people/Wiley-Landscape-Design-Tree-Service/100092206913959/" target="_blank">Visit us on Facebook</a></p>
+      <div id="map" class="map" style="height: 300px; width: 100%; margin-top: 1em;"></div>
     </div>
   </section>
 

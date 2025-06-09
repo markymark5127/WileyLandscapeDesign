@@ -31,6 +31,8 @@ function initMap() {
     center: location,
   });
   new google.maps.Marker({ position: location, map });
+
+  loadReviews();
 }
 window.initMap = initMap;
 
@@ -132,3 +134,41 @@ requestAnimationFrame(() => {
 });
 
 updateCarousel(0);
+
+// Google Reviews
+function loadReviews() {
+  const container = document.getElementById('reviews-container');
+  if (!container || !window.google || !google.maps) {
+    return;
+  }
+  const service = new google.maps.places.PlacesService(document.createElement('div'));
+  service.getDetails(
+    {
+      placeId: 'ChIJm5rs6PjWxokRoQXkT0dU8yw',
+      fields: ['reviews']
+    },
+    (place, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK && place.reviews) {
+        container.innerHTML = '';
+        place.reviews.slice(0, 5).forEach(r => {
+          const div = document.createElement('div');
+          div.className = 'review';
+          div.innerHTML = `
+            <p class="review-text">"${r.text}"</p>
+            <p class="review-author">- ${r.author_name}</p>
+          `;
+          container.appendChild(div);
+        });
+      } else {
+        container.textContent = 'Unable to load reviews.';
+      }
+    }
+  );
+}
+
+// Contact Form
+document.getElementById('contactForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Thank you! We\'ll be in touch soon.');
+  e.target.reset();
+});
