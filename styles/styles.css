@@ -11,7 +11,7 @@ body, html, h1, h2, h3, h4, h5, h6, p, a, li, button, input {
 }
 
 body, html {
-  min-height: 100%;
+  height: 100%;
   color: #000;
   background: url('../assets/background.png') no-repeat center center/cover;
   position: relative;
