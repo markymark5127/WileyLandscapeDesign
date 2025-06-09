@@ -89,12 +89,26 @@ function centerThumbnail() {
 }
 
 function updateCarousel(index) {
-  currentService = (index + services.length) % services.length;
-  mainImg.src = services[currentService].src;
-  mainImg.alt = services[currentService].title;
-  serviceTitle.textContent = services[currentService].title;
-  styleThumbnails();
-  centerThumbnail();
+  const newIndex = (index + services.length) % services.length;
+  if (newIndex === currentService) return;
+
+  mainImg.classList.add('fade-out');
+  serviceTitle.classList.add('fade-out');
+
+  mainImg.addEventListener('transitionend', function handler() {
+    mainImg.removeEventListener('transitionend', handler);
+    currentService = newIndex;
+    mainImg.src = services[currentService].src;
+    mainImg.alt = services[currentService].title;
+    serviceTitle.textContent = services[currentService].title;
+    styleThumbnails();
+    centerThumbnail();
+
+    requestAnimationFrame(() => {
+      mainImg.classList.remove('fade-out');
+      serviceTitle.classList.remove('fade-out');
+    });
+  }, { once: true });
 }
 
 prevBtn.addEventListener('click', () => updateCarousel(currentService - 1));
