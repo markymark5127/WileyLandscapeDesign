@@ -378,6 +378,11 @@ iframe {
   font-weight: 600;
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  font-family: 'Inter', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600; /* or 500 */
+  letter-spacing: 0.2px;
+
 }
 
 .carousel-btn {
