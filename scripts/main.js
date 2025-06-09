@@ -55,20 +55,31 @@ const nextBtn = document.querySelector('.carousel-btn.next');
 function renderThumbnails() {
   thumbContainer.innerHTML = '';
   services.forEach((service, index) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'thumbnail';
+    wrapper.dataset.index = index;
+
     const img = document.createElement('img');
     img.src = service.src;
     img.alt = service.title;
-    img.dataset.index = index;
-    thumbContainer.appendChild(img);
+
+    const label = document.createElement('div');
+    label.className = 'thumbnail-title';
+    label.textContent = service.title;
+
+    wrapper.appendChild(img);
+    wrapper.appendChild(label);
+    thumbContainer.appendChild(wrapper);
   });
-  thumbContainer.querySelectorAll('img').forEach(img => {
-    img.addEventListener('click', () => updateCarousel(+img.dataset.index));
+
+  thumbContainer.querySelectorAll('.thumbnail').forEach(wrapper => {
+    wrapper.addEventListener('click', () => updateCarousel(+wrapper.dataset.index));
   });
 }
 
 function styleThumbnails() {
-  const thumbs = thumbContainer.querySelectorAll('img');
-  thumbs.forEach((img, idx) => {
+  const thumbs = thumbContainer.querySelectorAll('.thumbnail');
+  thumbs.forEach((wrapper, idx) => {
     let diff = idx - currentService;
     if (diff > services.length / 2) diff -= services.length;
     if (diff < -services.length / 2) diff += services.length;
@@ -77,10 +88,10 @@ function styleThumbnails() {
     const x = diff * 80;
     const z = -Math.abs(diff) * 100;
     const angle = diff * 30;
-    img.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${angle}deg) scale(${scale})`;
-    img.style.opacity = opacity;
-    img.style.zIndex = 100 - Math.abs(diff);
-    img.classList.toggle('selected', idx === currentService);
+    wrapper.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${angle}deg) scale(${scale})`;
+    wrapper.style.opacity = opacity;
+    wrapper.style.zIndex = 100 - Math.abs(diff);
+    wrapper.classList.toggle('selected', idx === currentService);
   });
 }
 
@@ -117,12 +128,12 @@ nextBtn.addEventListener('click', () => updateCarousel(currentService + 1));
 renderThumbnails();
 
 // Position thumbnails immediately without animation
-const initialThumbs = thumbContainer.querySelectorAll('img');
-initialThumbs.forEach(img => img.classList.add('initial')); // disable transitions
+const initialThumbs = thumbContainer.querySelectorAll('.thumbnail');
+initialThumbs.forEach(thumb => thumb.classList.add('initial')); // disable transitions
 styleThumbnails();
 centerThumbnail();
 requestAnimationFrame(() => {
-  initialThumbs.forEach(img => img.classList.remove('initial'));
+  initialThumbs.forEach(thumb => thumb.classList.remove('initial'));
 });
 
 updateCarousel(0);

@@ -435,30 +435,50 @@ iframe {
   position: relative;
   width: 100%;
   max-width: 800px;
-  height: 70px;
+  height: 90px;
   margin: 0 auto;
   perspective: 1000px;
 }
 
-.thumbnail-carousel img {
+.thumbnail {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 70px;
   height: 40px;
-  object-fit: cover;
-  border-radius: 10px;
-  opacity: 0.6;
   transform-style: preserve-3d;
   transition: transform 0.6s ease, opacity 0.6s ease;
+  opacity: 0.6;
 }
 
-.thumbnail-carousel img.selected {
+.thumbnail img {
+  width: 70px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.thumbnail-title {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  color: #333;
+  pointer-events: none;
+}
+
+.thumbnail.selected {
   opacity: 1;
 }
 
+.thumbnail.selected .thumbnail-title {
+  display: none;
+}
+
 /* Disable transition on initial load */
-.thumbnail-carousel img.initial {
+.thumbnail.initial {
   transition: none;
 }
 
