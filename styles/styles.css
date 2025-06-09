@@ -355,9 +355,11 @@ iframe {
   overflow: hidden;
 }
 
+
 .main-service-img {
   display: block;
   width: 100%;
+  height: auto;
   border-radius: 25px;
 }
 
@@ -365,7 +367,8 @@ iframe {
   position: absolute;
   bottom: 10px;
   left: 15px;
-  font-size: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
   color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
@@ -410,9 +413,15 @@ iframe {
 
 .thumbnail-carousel {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.thumbnail-carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .thumbnail-carousel img {

@@ -81,12 +81,21 @@ function styleThumbnails() {
   });
 }
 
+function centerThumbnail() {
+  const selected = thumbContainer.querySelector('img.selected');
+  if (selected) {
+    const left = selected.offsetLeft - (thumbContainer.offsetWidth / 2 - selected.offsetWidth / 2);
+    thumbContainer.scrollTo({ left, behavior: 'smooth' });
+  }
+}
+
 function updateCarousel(index) {
   currentService = (index + services.length) % services.length;
   mainImg.src = services[currentService].src;
   mainImg.alt = services[currentService].title;
   serviceTitle.textContent = services[currentService].title;
   styleThumbnails();
+  centerThumbnail();
 }
 
 prevBtn.addEventListener('click', () => updateCarousel(currentService - 1));
