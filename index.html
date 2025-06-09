@@ -12,6 +12,11 @@
 
   <header class="frosted-header fixed-header">
     <nav class="nav">
+      <div class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About Us</a></li>
@@ -72,20 +77,19 @@
   </section>
 
   <script>
-    // Scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll and auto-close on nav click
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.nav-links').classList.remove('show');
       });
     });
 
-    // Google Map
+    // Google Maps init
     function initMap() {
       const location = { lat: 40.058698, lng: -76.750339 };
-      const map = new google.maps.Map(document.getElementById("map"), {
+      const map = new google.maps.Map(document.getElementById(\"map\"), {
         zoom: 10,
         center: location
       });
