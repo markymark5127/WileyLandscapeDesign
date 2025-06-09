@@ -441,6 +441,7 @@ iframe {
   max-width: 800px;
   height: 90px;
   margin: 0 auto;
+  overflow: hidden;
   perspective: 1000px;
 }
 
@@ -558,6 +559,7 @@ iframe {
   backdrop-filter: blur(8px);
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  color: #333;
   -webkit-appearance: none;
   appearance: none;
 }
@@ -571,18 +573,26 @@ iframe {
 
 .contact-phone,
 .facebook-link {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
   text-decoration: none;
   color: #333;
   background: rgba(255,255,255,0.6);
   backdrop-filter: blur(8px);
-  padding: 0.5em 1em;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   font-weight: 300;
   -webkit-appearance: none;
   appearance: none;
   transition: background 0.3s ease;
+}
+
+.icon-btn img {
+  width: 24px;
+  height: 24px;
 }
 
 .contact-phone:hover,
