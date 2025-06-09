@@ -6,15 +6,12 @@
 }
 
 body, html, h1, h2, h3, h4, h5, h6, p, a, li, button, input {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Roboto", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
-        font-weight: 300;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Roboto", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+  font-weight: 300;
 }
-
 
 body, html {
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Roboto", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
-  font-weight: 300;
   color: #000;
   background: url('../assets/background.png') no-repeat center center/cover;
   position: relative;
@@ -69,13 +66,16 @@ body, html {
   text-decoration: none;
   color: #333;
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 300;
+  letter-spacing: 0.25px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .phone-number {
   color: #333;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 300;
   font-size: 1.25rem;
 }
 
@@ -120,27 +120,32 @@ body, html {
 }
 
 .nav-menu-mobile {
-  display: none;
-  flex-direction: column;
   position: fixed;
-  top: 60px;
+  top: calc(60px + 1rem);
   left: 1rem;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
   padding: 1rem;
   border-radius: 15px;
   z-index: 1099;
   width: 200px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-20px);
+  pointer-events: none;
+  visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
 .nav-menu-mobile.show {
-  display: flex;
   opacity: 1;
   transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .nav-menu-mobile a {
@@ -148,8 +153,9 @@ body, html {
   margin: 0.5rem 0;
   text-decoration: none;
   color: #333;
-  font-weight: 500;
+  font-weight: 300;
   text-align: left;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Sections */
@@ -293,13 +299,10 @@ iframe {
   }
 
   .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 300;
-    letter-spacing: 0.25px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    color: #222;
+    text-decoration: none;
   }
 
   .phone-number {
