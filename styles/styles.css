@@ -221,6 +221,24 @@ body, html {
   margin-bottom: 2.5em;
 }
 
+@media (max-width: 768px) {
+  .full-logo {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .full-logo {
+    width: 70vw;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .full-logo {
+    width: 50vh;
+  }
+}
+
 .glass-box {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(8px);
