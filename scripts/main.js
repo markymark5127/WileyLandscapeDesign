@@ -69,24 +69,23 @@ function renderThumbnails() {
 function styleThumbnails() {
   const thumbs = thumbContainer.querySelectorAll('img');
   thumbs.forEach((img, idx) => {
-    const diff = Math.min(
-      Math.abs(idx - currentService),
-      services.length - Math.abs(idx - currentService)
-    );
-    const scale = 1 - Math.min(diff * 0.1, 0.4);
-    const opacity = 1 - Math.min(diff * 0.2, 0.6);
-    img.style.transform = `scale(${scale})`;
+    let diff = idx - currentService;
+    if (diff > services.length / 2) diff -= services.length;
+    if (diff < -services.length / 2) diff += services.length;
+    const scale = 1 - Math.min(Math.abs(diff) * 0.15, 0.45);
+    const opacity = 1 - Math.min(Math.abs(diff) * 0.25, 0.75);
+    const x = diff * 80;
+    const z = -Math.abs(diff) * 100;
+    const angle = diff * 30;
+    img.style.transform = `translate(-50%, -50%) translateX(${x}px) translateZ(${z}px) rotateY(${angle}deg) scale(${scale})`;
     img.style.opacity = opacity;
+    img.style.zIndex = 100 - Math.abs(diff);
     img.classList.toggle('selected', idx === currentService);
   });
 }
 
 function centerThumbnail() {
-  const selected = thumbContainer.querySelector('img.selected');
-  if (selected) {
-    const left = selected.offsetLeft - (thumbContainer.offsetWidth / 2 - selected.offsetWidth / 2);
-    thumbContainer.scrollTo({ left, behavior: 'smooth' });
-  }
+  /* no scrolling needed with 3D layout */
 }
 
 function updateCarousel(index) {
@@ -94,10 +93,6 @@ function updateCarousel(index) {
   mainImg.src = services[currentService].src;
   mainImg.alt = services[currentService].title;
   serviceTitle.textContent = services[currentService].title;
-  mainImg.classList.add('spin');
-  mainImg.addEventListener('animationend', () => {
-    mainImg.classList.remove('spin');
-  }, { once: true });
   styleThumbnails();
   centerThumbnail();
 }
