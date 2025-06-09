@@ -510,3 +510,53 @@ iframe {
     height: 8px;
   }
 }
+
+/* Reviews */
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-top: 1em;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  margin-bottom: 0.25em;
+}
+
+.review-author {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  margin: 1em 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75em 1em;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.facebook-link {
+  display: inline-block;
+  margin-top: 0.5em;
+}
